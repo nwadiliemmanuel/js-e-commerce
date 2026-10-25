@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAMSO STORE — Electronics & Computer Accessories</title>
+  <meta name="description" content="KAMSO STORE — quality laptops, phones, audio and accessories." />
+
+  <!-- Tailwind CSS via CDN (prototype setup, no build tools needed) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config: brand color palette (deep navy + cyan) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              50:  '#eef4fb',
+              100: '#d9e6f5',
+              700: '#16325c',
+              800: '#0f2547',
+              900: '#0a1a33',   // main brand color
+              950: '#060f1f',
+            },
+            brand: {
+              cyan: '#06b6d4',  // accent for interactive elements
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'Segoe UI', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Inter font for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<base target="_blank">
+</head>
+
+<body class="bg-slate-50 font-sans text-slate-800 antialiased">
+
+  <!-- ============================================================
+       1. ANNOUNCEMENT BAR
+       Promotional message — easy to update or remove later.
+       ============================================================ -->
+  <div id="announcement-bar" class="bg-navy-950 text-center text-sm text-cyan-300">
+    <p class="mx-auto max-w-7xl px-4 py-2">
+      🎉 Free delivery within Lagos on orders above ₦100,000 —
+      <span class="font-semibold text-white">Shop Now</span>
+    </p>
+  </div>
+
+  <!-- ============================================================
+       2. NAVIGATION
+       Logo + links (Home, Products, Contact) + cart indicator.
+       The cart count span (#cart-count) is a placeholder that
+       JavaScript will update later when items are added.
+       ============================================================ -->
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6" aria-label="Main navigation">
+
+      <!-- Text logo (replace with an <img> later if you design a custom logo) -->
+      <a href="#home" class="flex items-center gap-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-900 font-extrabold text-cyan-400">K</span>
+        <span class="text-lg font-extrabold tracking-tight text-navy-900">
+          KAMSO <span class="text-cyan-600">STORE</span>
+        </span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+        <li><a href="#home" class="transition hover:text-cyan-600">Home</a></li>
+        <li><a href="#products" class="transition hover:text-cyan-600">Products</a></li>
+        <li><a href="#contact" class="transition hover:text-cyan-600">Contact</a></li>
+      </ul>
+
+      <!-- Cart indicator (visual placeholder) -->
+      <button id="cart-button" type="button" aria-label="View cart"
+              class="relative flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-navy-900 shadow-sm transition hover:border-cyan-400 hover:text-cyan-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        Cart
+        <!-- Placeholder badge — JS will update this number -->
+        <span id="cart-count"
+              class="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-cyan-500 text-xs font-bold text-white">0</span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu (simple anchor links, no JS needed yet) -->
+    <ul class="flex items-center justify-center gap-6 border-t border-slate-100 bg-white py-2 text-sm font-medium text-slate-600 md:hidden">
+      <li><a href="#home" class="hover:text-cyan-600">Home</a></li>
+      <li><a href="#products" class="hover:text-cyan-600">Products</a></li>
+      <li><a href="#contact" class="hover:text-cyan-600">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- ============================================================
+       3. HERO SECTION
+       Strong headline + short description + Shop Now button.
+       ============================================================ -->
+  <section id="home" class="bg-navy-900">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">
+
+      <div>
+        <p class="mb-4 inline-block rounded-full bg-navy-800 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-cyan-400">
+          Trusted Tech Retailer
+        </p>
+        <h1 class="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Quality Gadgets.<br />
+          <span class="text-cyan-400">Honest Prices.</span>
+        </h1>
+        <p class="mt-5 max-w-md text-base leading-relaxed text-slate-300">
+          Shop laptops, phones, audio gear and accessories from KAMSO STORE —
+          carefully selected tech for work, study and play.
+        </p>
+        <a href="#products"
+           class="mt-8 inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-bold text-navy-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300">
+          Shop Now
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+               stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Decorative hero "product" card — pure CSS/SVG, no external images -->
+      <div class="hidden justify-center md:flex" aria-hidden="true">
+        <div class="relative w-full max-w-sm rounded-2xl bg-navy-800 p-6 shadow-2xl shadow-black/30 ring-1 ring-white/10">
+          <div class="rounded-xl bg-gradient-to-br from-cyan-500/20 to-navy-950 p-10 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-24 w-24 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="mt-5 flex items-center justify-between">
+            <div>
+              <p class="font-semibold text-white">Featured Tech</p>
+              <p class="text-sm text-slate-400">Hand-picked for you</p>
+            </div>
+            <span class="rounded-full bg-cyan-500/15 px-3 py-1 text-xs font-bold text-cyan-400">NEW</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. PRODUCT SEARCH
+       Visual placeholder for now — JavaScript will later listen to
+       the input with id="product-search" and filter products.
+       ============================================================ -->
+  <section id="search-section" class="mx-auto max-w-7xl px-4 pt-12 sm:px-6" aria-label="Product search">
+    <div class="mx-auto max-w-2xl">
+      <label for="product-search" class="sr-only">Search products</label>
+      <div class="relative">
+        <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+          <!-- Search icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+               stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </span>
+        <input id="product-search" name="search" type="search" placeholder="Search laptops, phones, audio..."
+               class="w-full rounded-xl border border-slate-200 bg-white py-3.5 pl-12 pr-4 text-sm shadow-sm transition placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-100" />
+      </div>
+      <!-- JS can show live result hints here, e.g. "3 products found" -->
+      <p id="search-hint" class="mt-2 hidden text-center text-xs text-slate-400"></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. CATEGORY AREA
+       Example categories — clicking one is a visual placeholder
+       until JavaScript adds filtering (give each button a data-category
+       attribute so JS can read it easily).
+       ============================================================ -->
+  <section id="categories" class="mx-auto max-w-7xl px-4 pt-12 sm:px-6" aria-label="Shop by category">
+    <h2 class="text-xl font-bold text-navy-900">Shop by Category</h2>
+
+    <!-- Buttons use data-category so JS can filter products later -->
+    <div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+
+      <button type="button" data-category="laptops"
+              class="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:border-cyan-400 hover:shadow-md">
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-cyan-400">💻</span>
+        <span>
+          <span class="block text-sm font-bold text-navy-900 group-hover:text-cyan-700">Laptops</span>
+          <span class="block text-xs text-slate-500">Power &amp; performance</span>
+        </span>
+      </button>
+
+      <button type="button" data-category="phones"
+              class="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:border-cyan-400 hover:shadow-md">
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-cyan-400">📱</span>
+        <span>
+          <span class="block text-sm font-bold text-navy-900 group-hover:text-cyan-700">Phones</span>
+          <span class="block text-xs text-slate-500">Stay connected</span>
+        </span>
+      </button>
+
+      <button type="button" data-category="audio"
+              class="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:border-cyan-400 hover:shadow-md">
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-cyan-400">🎧</span>
+        <span>
+          <span class="block text-sm font-bold text-navy-900 group-hover:text-cyan-700">Audio</span>
+          <span class="block text-xs text-slate-500">Crisp sound</span>
+        </span>
+      </button>
+
+      <button type="button" data-category="accessories"
+              class="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:border-cyan-400 hover:shadow-md">
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-cyan-400">⌨️</span>
+        <span>
+          <span class="block text-sm font-bold text-navy-900 group-hover:text-cyan-700">Accessories</span>
+          <span class="block text-xs text-slate-500">Complete your setup</span>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. PRODUCT GRID
+       ⚠️ IMPORTANT: This is the ONLY place static product cards exist.
+       They are starter examples. Later, your JavaScript will generate
+       cards dynamically from a product array and inject them into the
+       container below (id="product-list"). Then these static cards can
+       be deleted — the layout adapts automatically (CSS Grid).
+
+       Card structure for JS rendering reference:
+         <article class="product-card ...">
+           <div class="product-image ...">emoji/image</div>
+           <h3 class="product-name">...</h3>
+           <p class="product-price">₦...</p>
+           <p class="product-stock">... in stock</p>
+           <button class="add-to-cart" data-id="...">Add to Cart</button>
+         </article>
+       ============================================================ -->
+  <main id="products" class="mx-auto max-w-7xl px-4 pt-14 pb-16 sm:px-6">
+    <div class="flex items-end justify-between">
+      <div>
+        <h2 class="text-2xl font-extrabold tracking-tight text-navy-900">Our Products</h2>
+        <p class="mt-1 text-sm text-slate-500">Starter catalogue — more products can be added without redesigning this page.</p>
+      </div>
+    </div>
+
+    <!-- Responsive grid: 1 col mobile → 2 tablet → 3 desktop → 4 wide desktop -->
+    <div id="product-list"
+         class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+      <!-- ── Sample Product Card (Laptop) ── -->
+      <article class="product-card group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <div class="product-image flex h-44 items-center justify-center bg-navy-800 text-6xl">💻</div>
+        <div class="flex flex-1 flex-col gap-2 p-4">
+          <h3 class="product-name text-base font-bold text-navy-900">Laptop</h3>
+          <p class="product-price text-lg font-extrabold text-cyan-600">₦50,000</p>
+          <p class="product-stock text-xs font-medium text-slate-500">5 in stock</p>
+          <button type="button" data-id="1"
+                  class="add-to-cart mt-auto rounded-lg bg-navy-900 py-2.5 text-sm font-bold text-white transition hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-cyan-300 active:scale-[0.98]">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- ── Sample Product Card (Phone) ── -->
+      <article class="product-card group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <div class="product-image flex h-44 items-center justify-center bg-navy-800 text-6xl">📱</div>
+        <div class="flex flex-1 flex-col gap-2 p-4">
+          <h3 class="product-name text-base font-bold text-navy-900">Phone</h3>
+          <p class="product-price text-lg font-extrabold text-cyan-600">₦200,000</p>
+          <p class="product-stock text-xs font-medium text-slate-500">10 in stock</p>
+          <button type="button" data-id="2"
+                  class="add-to-cart mt-auto rounded-lg bg-navy-900 py-2.5 text-sm font-bold text-white transition hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-cyan-300 active:scale-[0.98]">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- ── Sample Product Card (Headphones) ── -->
+      <article class="product-card group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <div class="product-image flex h-44 items-center justify-center bg-navy-800 text-6xl">🎧</div>
+        <div class="flex flex-1 flex-col gap-2 p-4">
+          <h3 class="product-name text-base font-bold text-navy-900">Headphones</h3>
+          <p class="product-price text-lg font-extrabold text-cyan-600">₦50,000</p>
+          <p class="product-stock text-xs font-medium text-slate-500">8 in stock</p>
+          <button type="button" data-id="3"
+                  class="add-to-cart mt-auto rounded-lg bg-navy-900 py-2.5 text-sm font-bold text-white transition hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-cyan-300 active:scale-[0.98]">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- ── Sample Product Card (Keyboard) ── -->
+      <article class="product-card group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <div class="product-image flex h-44 items-center justify-center bg-navy-800 text-6xl">⌨️</div>
+        <div class="flex flex-1 flex-col gap-2 p-4">
+          <h3 class="product-name text-base font-bold text-navy-900">Keyboard</h3>
+          <p class="product-price text-lg font-extrabold text-cyan-600">₦30,000</p>
+          <p class="product-stock text-xs font-medium text-slate-500">4 in stock</p>
+          <button type="button" data-id="4"
+                  class="add-to-cart mt-auto rounded-lg bg-navy-900 py-2.5 text-sm font-bold text-white transition hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-cyan-300 active:scale-[0.98]">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- ── Sample Product Card (Mouse) ── -->
+      <article class="product-card group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+        <div class="product-image flex h-44 items-center justify-center bg-navy-800 text-6xl">🖱️</div>
+        <div class="flex flex-1 flex-col gap-2 p-4">
+          <h3 class="product-name text-base font-bold text-navy-900">Mouse</h3>
+          <p class="product-price text-lg font-extrabold text-cyan-600">₦15,000</p>
+          <p class="product-stock text-xs font-medium text-slate-500">12 in stock</p>
+          <button type="button" data-id="5"
+                  class="add-to-cart mt-auto rounded-lg bg-navy-900 py-2.5 text-sm font-bold text-white transition hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-cyan-300 active:scale-[0.98]">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+    </div><!-- /#product-list -->
+  </main>
+
+  <!-- ============================================================
+       7. CART SUMMARY AREA
+       Visual placeholder. JavaScript will later:
+         - read clicks from buttons with class "add-to-cart"
+         - render items into #cart-summary
+         - update #cart-total and #cart-count
+       ============================================================ -->
+  <section id="cart" class="border-t border-slate-200 bg-white" aria-label="Shopping cart summary">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+      <h2 class="text-xl font-bold text-navy-900">Your Cart</h2>
+
+      <div id="cart-summary"
+           class="mt-5 rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6">
+        <p id="cart-empty-message" class="text-sm text-slate-500">
+          🛒 Your cart is empty — add products to see them here.
+        </p>
+        <!-- JS will inject cart item rows here later, e.g.:
+             <div class="cart-item">Laptop × 1 — ₦50,000</div> -->
+      </div>
+
+      <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+        <p class="text-sm text-slate-500">
+          Total: <span id="cart-total" class="text-lg font-extrabold text-navy-900">₦0</span>
+        </p>
+        <!-- Checkout is intentionally NOT implemented in this version -->
+        <button type="button" disabled
+                class="cursor-not-allowed rounded-lg bg-slate-200 px-6 py-2.5 text-sm font-bold text-slate-400">
+          Checkout (coming soon)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. FOOTER
+       Brand description, navigation links, contact placeholders.
+       ============================================================ -->
+  <footer id="contact" class="bg-navy-950 text-slate-300">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
+
+      <!-- Brand -->
+      <div>
+        <p class="text-lg font-extrabold text-white">
+          KAMSO <span class="text-cyan-400">STORE</span>
+        </p>
+        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-400">
+          Your trusted destination for quality laptops, phones, audio
+          equipment and computer accessories.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <nav aria-label="Footer navigation">
+        <p class="text-sm font-bold uppercase tracking-wider text-white">Quick Links</p>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="#home" class="transition hover:text-cyan-400">Home</a></li>
+          <li><a href="#products" class="transition hover:text-cyan-400">Products</a></li>
+          <li><a href="#search-section" class="transition hover:text-cyan-400">Search</a></li>
+          <li><a href="#cart" class="transition hover:text-cyan-400">Cart</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact placeholders — fill in later -->
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wider text-white">Contact Us</p>
+        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+          <li>📍 <span id="footer-address">Address — coming soon</span></li>
+          <li>📞 <span id="footer-phone">Phone — coming soon</span></li>
+          <li>✉️ <span id="footer-email">Email — coming soon</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <p class="mx-auto max-w-7xl px-4 py-5 text-center text-xs text-slate-500 sm:px-6">
+        © <span id="current-year">2026</span> KAMSO STORE. All rights reserved. Sample learning project.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT CONNECTION POINT (for your future script)
+       ------------------------------------------------------------
+       Create a file "script.js" in the same folder, then uncomment:
+
+         <script src="script.js"></script>
+
+       In script.js you will hook into these IDs:
+         #product-search  -> listen for "input" events to filter products
+         #product-list    -> render product cards here from your JS array
+         #cart-summary    -> show cart items and total here
+         #cart-total      -> update the total price
+         #cart-count      -> update the cart badge number
+         .add-to-cart     -> buttons (data-id) that trigger addToCart(id)
+       ============================================================ -->
+
+</body>
+</html>
